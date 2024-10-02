@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+#define SIZE 10
+
+// ฟังก์ชันแบบ Pass by value เพื่อหาค่ามากที่สุดในอาเรย์ Height
+int findMaxHeight(int heights[], int size) {
+    int maxHeight = heights[0]; // เริ่มต้นค่ามากที่สุดเป็นค่าตัวแรก
+    for (int i = 1; i < size; i++) {
+        if (heights[i] > maxHeight) {
+            maxHeight = heights[i];
+        }
+    }
+    return maxHeight;
+}
+
+// ฟังก์ชันแบบ Pass by reference เพื่อหาค่ามากที่สุดในอาเรย์ Age
+void findMaxAge(int ages[], int size, int *maxAge) {
+    *maxAge = ages[0]; // เริ่มต้นค่ามากที่สุดเป็นค่าตัวแรก
+    for (int i = 1; i < size; i++) {
+        if (ages[i] > *maxAge) {
+            *maxAge = ages[i];
+        }
+    }
+}
+
+int main() {
+    int Height[SIZE] = {159, 168, 191, 188, 154, 152, 167, 165, 178, 177};
+    int Age[SIZE] = {18, 19, 18, 17, 16, 18, 17, 18, 18, 18};
+    int maxAge;
+
+    // หาค่ามากที่สุดในอาเรย์ Height
+    int maxHeight = findMaxHeight(Height, SIZE);
+
+    // หาค่ามากที่สุดในอาเรย์ Age
+    findMaxAge(Age, SIZE, &maxAge);
+
+    // แสดงผลลัพธ์
+    printf("Max Height = %d\n", maxHeight);
+    printf("Max Age = %d\n", maxAge);
+
+    return 0;
+}
