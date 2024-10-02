@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+// ฟังก์ชันในการหาผลรวม
+int calculateSum(int a, int b, int c) {
+    return a + b + c;
+}
+
+int main() {
+    int num1, num2, num3;
+
+    // รับค่าจากผู้ใช้
+    printf("Input 1:\n");
+    scanf("%d", &num1);
+    printf("Input 2:\n");
+    scanf("%d", &num2);
+    printf("Input 3:\n");
+    scanf("%d", &num3);
+
+    // คำนวณผลรวมโดยเรียกใช้งานฟังก์ชัน
+    int sum = calculateSum(num1, num2, num3);
+
+    // แสดงผลลัพธ์
+    printf("Summation = %d (Calculate by Additional Function)\n", sum);
+
+    return 0;
+}
