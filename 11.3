@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char input[100];  // กำหนดขนาดสูงสุดของข้อความที่รับเข้า
+    char reversed[100]; // เก็บข้อความที่กลับตัวอักษร
+
+    // รับข้อความจากผู้ใช้
+    printf("Enter a message:\n");
+    fgets(input, sizeof(input), stdin); // ใช้ fgets เพื่อรับข้อความรวมทั้งช่องว่าง
+
+    // ลบ newline ที่เกิดจากการใช้ fgets
+    input[strcspn(input, "\n")] = '\0';
+
+    int length = strlen(input); // หาความยาวของข้อความ
+
+    // กลับตัวอักษร
+    for (int i = 0; i < length; i++) {
+        reversed[i] = input[length - 1 - i]; // สลับตำแหน่ง
+    }
+    reversed[length] = '\0'; // เพิ่ม null terminator
+
+    // แสดงผล
+    printf("Output:\n%s\n", reversed);
+
+    return 0;
+}
