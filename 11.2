@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+// โครงสร้างเพื่อเก็บข้อมูลของคน
+struct Person {
+    char name[50];
+    int age;
+};
+
+// ฟังก์ชันในการสลับอายุ
+void swapAge(struct Person *a, struct Person *b) {
+    int temp = a->age;
+    a->age = b->age;
+    b->age = temp;
+}
+
+int main() {
+    struct Person person1, person2;
+
+    // รับข้อมูลจากผู้ใช้
+    printf("Input A\n");
+    printf("Name:\n");
+    scanf("%s", person1.name);
+    printf("Age:\n");
+    scanf("%d", &person1.age);
+
+    printf("Input B\n");
+    printf("Name:\n");
+    scanf("%s", person2.name);
+    printf("Age:\n");
+    scanf("%d", &person2.age);
+
+    // แสดงผลลัพธ์ก่อนการสลับ
+    printf("\n** RESULT **\n");
+    printf("Name: %s (%d)\n", person1.name, person1.age);
+    printf("Name: %s (%d)\n", person2.name, person2.age);
+
+    // สลับอายุ
+    swapAge(&person1, &person2);
+
+    // แสดงผลลัพธ์หลังการสลับ
+    printf("\n** SWAP AGE **\n");
+    printf("Name: %s (%d)\n", person1.name, person1.age);
+    printf("Name: %s (%d)\n", person2.name, person2.age);
+
+    return 0;
+}
