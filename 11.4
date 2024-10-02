@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+// ฟังก์ชันเพื่อคำนวณค่า factorial
+unsigned long long factorial(int n) {
+    unsigned long long result = 1;
+    for (int i = 1; i <= n; i++) {
+        result *= i;
+    }
+    return result;
+}
+
+// ฟังก์ชันเพื่อหาผลรวมของอนุกรม
+unsigned long long sumSeries(int n) {
+    unsigned long long sum = 0;
+    for (int i = 1; i <= n; i++) {
+        sum += (i - 1) + factorial(i);
+    }
+    return sum;
+}
+
+int main() {
+    int terms;
+
+    // รับค่าจำนวนพจน์จากผู้ใช้
+    printf("Enter number of terms: ");
+    scanf("%d", &terms);
+
+    // คำนวณผลรวมและแสดงผล
+    unsigned long long result = sumSeries(terms);
+    printf("Sum = %llu\n", result);
+
+    return 0;
+}
