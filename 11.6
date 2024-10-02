@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+// ฟังก์ชันเพื่อหาค่า Fibonacci ที่ n
+int fibonacci(int n) {
+    if (n == 0) {
+        return 0;
+    } else if (n == 1 || n == 2) {
+        return 1;
+    } else {
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+}
+
+// ฟังก์ชันเพื่อหาผลรวมของอนุกรมฟีโบนัชชี
+int fibonacciSum(int n) {
+    if (n <= 0) {
+        return 0;
+    }
+    return fibonacci(n) + fibonacciSum(n - 1);
+}
+
+int main() {
+    int n;
+
+    // รับค่าจากผู้ใช้
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    // แสดงผลอนุกรมและผลรวม
+    printf("Series = ");
+    for (int i = 1; i <= n; i++) {
+        printf("%d", fibonacci(i));
+        if (i < n) {
+            printf(" + ");
+        }
+    }
+
+    int sum = fibonacciSum(n);
+    printf("\nSum = %d\n", sum);
+
+    return 0;
+}
